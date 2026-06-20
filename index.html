@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaarahi HomeFoods — Andhra Home-Cooked Sweets, Snacks, Pickles & Podi</title>
+<meta name="description" content="Traditional Andhra homemade sweets, snacks, pickles and spice podi — made fresh, shipped pan-India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500;600;700;800&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF3E3;
+    --cream-2:#F3E6CC;
+    --white:#FFFDF8;
+    --ink:#2B1B12;
+    --ink-soft:#6b5847;
+    --maroon:#8A1538;
+    --maroon-dark:#6B0F2A;
+    --turmeric:#C9821F;
+    --gold:#E8A33D;
+    --leaf:#4B6B3A;
+    --leaf-dark:#3F5D2A;
+    --whatsapp:#25D366;
+    --whatsapp-dark:#1DA851;
+    --radius:20px;
+    --radius-sm:12px;
+    --shadow:0 10px 30px rgba(43,27,18,.10);
+    --shadow-lg:0 20px 50px rgba(43,27,18,.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Mulish',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand{font-family:'Baloo Tammudu 2',sans-serif;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  button{font-family:inherit;cursor:pointer;}
+  :focus-visible{outline:3px solid var(--turmeric);outline-offset:2px;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 28px;}
+  .eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--turmeric);}
+
+  /* ---------- KOLAM DIVIDER (signature motif) ---------- */
+  .kolam{
+    height:26px;
+    background-image:
+      radial-gradient(circle at 12px 13px, var(--turmeric) 3px, transparent 3.4px),
+      radial-gradient(circle at 32px 13px, var(--maroon) 2.2px, transparent 2.6px);
+    background-size:44px 26px;
+    background-repeat:repeat-x;
+    background-position:center;
+    opacity:.55;
+  }
+
+  /* ---------- TOPBAR ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:100;
+    background:rgba(251,243,227,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(43,27,18,.08);
+  }
+  .topbar-inner{
+    max-width:1240px;margin:0 auto;padding:12px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .brand-row{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .brand-row img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);}
+  .brand-text .brand{font-size:1.3rem;font-weight:700;color:var(--maroon);line-height:1.1;}
+  .brand-text small{font-size:.72rem;color:var(--ink-soft);font-weight:600;letter-spacing:.04em;}
+  .top-nav{display:flex;gap:26px;list-style:none;margin:0;padding:0;}
+  .top-nav a{font-weight:700;font-size:.95rem;text-decoration:none;color:var(--ink-soft);padding:6px 2px;border-bottom:2px solid transparent;transition:.2s;}
+  .top-nav a:hover{color:var(--maroon);border-color:var(--gold);}
+  .top-actions{display:flex;align-items:center;gap:10px;}
+  .icon-btn{
+    position:relative;background:var(--white);border:1px solid rgba(43,27,18,.12);
+    border-radius:999px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+    font-size:1.15rem;transition:.2s;
+  }
+  .icon-btn:hover{border-color:var(--maroon);transform:translateY(-2px);}
+  .badge-count{
+    position:absolute;top:-6px;right:-6px;background:var(--maroon);color:#fff;
+    font-size:.68rem;font-weight:800;min-width:19px;height:19px;border-radius:999px;
+    display:flex;align-items:center;justify-content:center;padding:0 4px;border:2px solid var(--cream);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background-image:radial-gradient(circle at 1px 1px, rgba(138,21,56,.10) 1.4px, transparent 1.6px);
+    background-size:26px 26px;
+  }
+  .hero-inner{
+    max-width:1240px;margin:0 auto;padding:64px 28px 56px;
+    display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem,4vw + 1rem,3.6rem);
+    font-weight:800;color:var(--maroon);line-height:1.08;margin:10px 0 18px;
+  }
+  .hero h1 span{color:var(--turmeric);}
+  .hero p.lead{font-size:1.08rem;color:var(--ink-soft);max-width:46ch;margin:0 0 26px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px;}
+  .btn{
+    border:none;border-radius:999px;padding:14px 26px;font-weight:800;font-size:.95rem;
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:.2s;
+  }
+  .btn-primary{background:var(--maroon);color:#fff;box-shadow:0 8px 20px rgba(138,21,56,.28);}
+  .btn-primary:hover{background:var(--maroon-dark);transform:translateY(-2px);}
+  .btn-outline{background:transparent;border:2px solid var(--maroon);color:var(--maroon);padding:12px 24px;}
+  .btn-outline:hover{background:var(--maroon);color:#fff;}
+  .btn-whatsapp{background:var(--whatsapp);color:#fff;}
+  .btn-whatsapp:hover{background:var(--whatsapp-dark);}
+  .trust-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .trust-pill{
+    background:var(--white);border:1px solid rgba(43,27,18,.1);border-radius:999px;
+    padding:8px 14px;font-size:.8rem;font-weight:700;color:var(--ink-soft);display:flex;align-items:center;gap:6px;
+  }
+
+  .hero-collage{
+    display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(4,52px);gap:10px;
+  }
+  .hero-collage img{
+    width:100%;height:100%;object-fit:cover;border-radius:16px;border:5px solid var(--white);
+    box-shadow:var(--shadow);
+  }
+  .hc1{grid-column:1/4;grid-row:1/3;transform:rotate(-2deg);}
+  .hc2{grid-column:4/7;grid-row:1/3;transform:rotate(2deg);}
+  .hc3{grid-column:1/3;grid-row:3/5;transform:rotate(2deg);}
+  .hc4{grid-column:3/5;grid-row:3/5;transform:rotate(-3deg);}
+  .hc5{grid-column:5/7;grid-row:3/5;transform:rotate(1.5deg);}
+
+  /* ---------- CATEGORY TABS ---------- */
+  .cat-tabs{
+    position:sticky;top:71px;z-index:90;background:rgba(251,243,227,.95);backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(43,27,18,.08);
+  }
+  .cat-tabs-inner{
+    max-width:1240px;margin:0 auto;padding:14px 28px;
+    display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  }
+  .chip-row{display:flex;gap:10px;overflow-x:auto;flex:1;scrollbar-width:none;}
+  .chip-row::-webkit-scrollbar{display:none;}
+  .chip{
+    flex:none;background:var(--white);border:1.5px solid rgba(43,27,18,.12);color:var(--ink-soft);
+    border-radius:999px;padding:9px 18px;font-weight:700;font-size:.88rem;white-space:nowrap;transition:.2s;
+  }
+  .chip:hover{border-color:var(--turmeric);}
+  .chip.active{background:var(--maroon);border-color:var(--maroon);color:#fff;}
+  .search-wrap{position:relative;flex:none;width:230px;}
+  .search-wrap input{
+    width:100%;padding:10px 14px 10px 36px;border-radius:999px;border:1.5px solid rgba(43,27,18,.12);
+    background:var(--white);font-family:inherit;font-size:.88rem;color:var(--ink);
+  }
+  .search-wrap input:focus{border-color:var(--maroon);}
+  .search-wrap::before{content:"🔍";position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:.85rem;opacity:.6;}
+
+  /* ---------- SECTIONS ---------- */
+  .cat-section{scroll-margin-top:150px;padding:56px 0 16px;}
+  .cat-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:30px;flex-wrap:wrap;}
+  .cat-head h2{font-size:clamp(1.7rem,2.4vw,2.2rem);color:var(--ink);margin:6px 0 6px;}
+  .cat-head p{margin:0;color:var(--ink-soft);max-width:60ch;font-size:.96rem;}
+  .count-tag{font-size:.8rem;font-weight:700;color:var(--leaf);background:rgba(75,107,58,.1);padding:6px 12px;border-radius:999px;white-space:nowrap;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:24px;}
+  .no-match{grid-column:1/-1;text-align:center;color:var(--ink-soft);padding:30px;font-weight:600;}
+
+  .card{
+    background:var(--white);border-radius:var(--radius);overflow:hidden;
+    border:1px solid rgba(43,27,18,.08);box-shadow:var(--shadow);
+    display:flex;flex-direction:column;transition:.25s;
+  }
+  .card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);}
+  .card-img{position:relative;aspect-ratio:4/3;background:var(--cream-2);overflow:hidden;}
+  .card-img img{width:100%;height:100%;object-fit:cover;}
+  .card-img.illus{display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#F3E6CC,#FBF3E3);}
+  .card-img.illus svg{width:64%;height:auto;}
+  .tag-pill{position:absolute;top:9px;right:9px;background:var(--maroon);color:#fff;font-size:.68rem;font-weight:800;padding:5px 10px;border-radius:999px;letter-spacing:.02em;}
+  .card-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1;gap:10px;}
+  .card-body h3{font-size:1.08rem;margin:0;color:var(--ink);font-weight:700;font-family:'Mulish',sans-serif;}
+  .card-body .desc{font-size:.85rem;color:var(--ink-soft);margin:0;min-height:2.6em;}
+  .variant-row{display:flex;gap:7px;flex-wrap:wrap;}
+  .pill{
+    border:1.5px solid rgba(43,27,18,.16);background:transparent;color:var(--ink-soft);
+    border-radius:999px;padding:6px 12px;font-size:.78rem;font-weight:700;transition:.15s;
+  }
+  .pill.active{background:var(--turmeric);border-color:var(--turmeric);color:#fff;}
+  .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:6px;}
+  .price{font-size:1.2rem;font-weight:800;color:var(--maroon);font-family:'Baloo Tammudu 2',sans-serif;}
+  .qty-stepper{display:flex;align-items:center;border:1.5px solid rgba(43,27,18,.16);border-radius:999px;overflow:hidden;}
+  .qty-stepper button{background:var(--cream-2);border:none;width:28px;height:28px;font-weight:800;font-size:1rem;color:var(--ink);}
+  .qty-stepper span{width:26px;text-align:center;font-weight:700;font-size:.85rem;}
+  .add-btn{
+    width:100%;background:var(--maroon);color:#fff;border:none;border-radius:999px;padding:11px;
+    font-weight:800;font-size:.9rem;display:flex;align-items:center;justify-content:center;gap:7px;transition:.2s;
+  }
+  .add-btn:hover{background:var(--maroon-dark);}
+  .add-btn.added{background:var(--leaf);}
+
+  /* ---------- TRUST / STORY BAND ---------- */
+  .story-band{background:var(--white);border-top:1px solid rgba(43,27,18,.08);border-bottom:1px solid rgba(43,27,18,.08);}
+  .story-inner{max-width:1240px;margin:0 auto;padding:34px 28px;display:flex;gap:40px;flex-wrap:wrap;justify-content:space-between;align-items:center;}
+  .story-text{max-width:60ch;font-size:.95rem;color:var(--ink-soft);}
+  .story-text strong{color:var(--ink);}
+  .story-badges{display:flex;gap:26px;flex-wrap:wrap;}
+  .story-badge{text-align:center;font-size:.78rem;font-weight:700;color:var(--ink-soft);max-width:90px;}
+  .story-badge .ic{font-size:1.6rem;display:block;margin-bottom:6px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:#EFE3D2;padding:54px 0 24px;margin-top:30px;}
+  .footer-inner{max-width:1240px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;}
+  .footer-inner h4{font-family:'Baloo Tammudu 2',sans-serif;color:var(--gold);font-size:1.1rem;margin:0 0 14px;}
+  .footer-inner p, .footer-inner a{color:#cdbfac;font-size:.88rem;line-height:1.8;text-decoration:none;}
+  .footer-inner ul{list-style:none;margin:0;padding:0;}
+  .footer-inner a:hover{color:#fff;}
+  .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .footer-brand img{width:38px;height:38px;border-radius:50%;}
+  .footer-brand span{font-family:'Baloo Tammudu 2',sans-serif;font-size:1.2rem;color:#fff;font-weight:700;}
+  .copyline{text-align:center;font-size:.78rem;color:#9c8a76;margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);}
+
+  /* ---------- FLOATING WHATSAPP ---------- */
+  .float-wa{
+    position:fixed;right:22px;bottom:22px;z-index:80;background:var(--whatsapp);color:#fff;
+    width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:1.6rem;box-shadow:0 10px 24px rgba(37,211,102,.45);border:none;transition:.2s;
+  }
+  .float-wa:hover{transform:scale(1.07);}
+
+  /* ---------- TOAST ---------- */
+  .toast{
+    position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);
+    background:var(--ink);color:#fff;padding:13px 24px;border-radius:999px;font-weight:700;font-size:.88rem;
+    box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:.3s;z-index:200;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0);}
+
+  /* ---------- CART DRAWER ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(20,12,7,.45);opacity:0;pointer-events:none;transition:.3s;z-index:150;}
+  .overlay.open{opacity:1;pointer-events:auto;}
+  .drawer{
+    position:fixed;top:0;right:-440px;width:min(420px,100vw);height:100%;background:var(--cream);
+    z-index:160;box-shadow:-12px 0 40px rgba(0,0,0,.2);transition:right .35s ease;display:flex;flex-direction:column;
+  }
+  .drawer.open{right:0;}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid rgba(43,27,18,.1);}
+  .drawer-head h3{margin:0;font-size:1.2rem;color:var(--maroon);}
+  .drawer-close{background:var(--white);border:1px solid rgba(43,27,18,.12);border-radius:50%;width:34px;height:34px;font-size:1rem;}
+  .drawer-body{flex:1;overflow-y:auto;padding:16px 22px;}
+  .cart-row{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid rgba(43,27,18,.08);align-items:center;}
+  .cart-thumb{width:58px;height:58px;border-radius:12px;overflow:hidden;flex:none;background:var(--cream-2);display:flex;align-items:center;justify-content:center;}
+  .cart-thumb img{width:100%;height:100%;object-fit:cover;}
+  .cart-thumb svg{width:80%;height:80%;}
+  .cart-info{flex:1;min-width:0;}
+  .cart-info .nm{font-weight:700;font-size:.92rem;}
+  .cart-info .vr{font-size:.78rem;color:var(--ink-soft);}
+  .cart-line-foot{display:flex;align-items:center;justify-content:space-between;margin-top:6px;}
+  .cart-qty{display:flex;align-items:center;border:1px solid rgba(43,27,18,.16);border-radius:999px;}
+  .cart-qty button{background:none;border:none;width:24px;height:24px;font-weight:800;}
+  .cart-qty span{width:20px;text-align:center;font-size:.8rem;font-weight:700;}
+  .cart-remove{background:none;border:none;color:var(--maroon);font-size:.78rem;font-weight:700;text-decoration:underline;}
+  .cart-line-price{font-weight:800;color:var(--maroon);font-size:.92rem;}
+  .empty-cart{text-align:center;padding:60px 10px;color:var(--ink-soft);}
+  .empty-cart .ic{font-size:2.4rem;margin-bottom:10px;}
+  .drawer-foot{padding:18px 22px 24px;border-top:1px solid rgba(43,27,18,.1);background:var(--white);}
+  .total-row{display:flex;justify-content:space-between;font-size:1.05rem;font-weight:800;margin-bottom:14px;}
+  .drawer-foot .btn{width:100%;justify-content:center;margin-bottom:8px;}
+  .clear-link{display:block;text-align:center;font-size:.8rem;color:var(--ink-soft);text-decoration:underline;background:none;border:none;width:100%;padding:6px;}
+
+  @media(max-width:980px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-collage{display:none;}
+    .top-nav{display:none;}
+    .footer-inner{grid-template-columns:1fr;}
+  }
+  @media(max-width:560px){
+    .wrap,.hero-inner,.topbar-inner,.cat-tabs-inner,.story-inner,.footer-inner{padding-left:18px;padding-right:18px;}
+    .search-wrap{width:100%;}
+    .cat-tabs-inner{flex-direction:column;align-items:stretch;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none!important;animation:none!important;scroll-behavior:auto!important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOPBAR ============ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand-row" href="#top">
+      <img src="https://vaarahi-homefoods.github.io/vaarahi-homefoods/images/logo.png" alt="Vaarahi HomeFoods logo">
+      <div class="brand-text">
+        <div class="brand">Vaarahi HomeFoods</div>
+        <small>TRADITIONAL ANDHRA KITCHEN</small>
+      </div>
+    </a>
+    <ul class="top-nav">
+      <li><a href="#sweets">Sweets</a></li>
+      <li><a href="#snacks">Snacks</a></li>
+      <li><a href="#pickles">Pickles</a></li>
+      <li><a href="#podi">Podi</a></li>
+      <li><a href="#footer-contact">Contact</a></li>
+    </ul>
+    <div class="top-actions">
+      <button class="icon-btn" id="searchToggle" title="Search" aria-label="Search products">🔍</button>
+      <button class="icon-btn" id="cartBtn" title="Open cart" aria-label="Open cart">
+        🛒<span class="badge-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">Home-Cooked · Veg &amp; Non-Veg · Made To Order</span>
+      <h1>Andhra flavours, <span>packed with the same love</span> as home.</h1>
+      <p class="lead">Ladoos rolled by hand, pickles sun-cured the old way, and podi ground fresh — Vaarahi HomeFoods brings your grandmother's kitchen to your doorstep, anywhere in India.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" onclick="document.getElementById('sweets').scrollIntoView()">Explore the Menu</button>
+        <a class="btn btn-whatsapp" id="heroWaBtn" href="#" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+      </div>
+      <div class="trust-row">
+        <span class="trust-pill">🏠 100% Home-cooked</span>
+        <span class="trust-pill">🌿 No preservatives</span>
+        <span class="trust-pill">🚚 Free shipping</span>
+        <span class="trust-pill">🥭 Veg &amp; Non-Veg Pickles</span>
+      </div>
+    </div>
+    <div class="hero-collage" aria-hidden="true">
+      <img class="hc1" src="https://vaarahi-homefoods.github.io/vaarahi-homefoods/images/sweets/dry-fruit-ladoo.jpg" alt="">
+      <img class="hc2" src="https://vaarahi-homefoods.github.io/vaarahi-homefoods/images/snacks/chakkilalu-saddapindi.jpg" alt="">
+      <img class="hc3" src="https://vaarahi-homefoods.github.io/vaarahi-homefoods/images/sweets/arisalu.jpg" alt="">
+      <img class="hc4" src="https://vaarahi-homefoods.github.io/vaarahi-homefoods/images/banners/banner1.jpg" alt="">
+      <img class="hc5" src="https://vaarahi-homefoods.github.io/vaarahi-homefoods/images/snacks/ribbon-pakodi.jpg" alt="">
+    </div>
+  </div>
+</section>
+<div class="kolam"></div>
+
+<!-- ============ CATEGORY TABS ============ -->
+<nav class="cat-tabs">
+  <div class="cat-tabs-inner">
+    <div class="chip-row" id="chipRow">
+      <button class="chip" data-target="sweets">🍯 Sweets</button>
+      <button class="chip" data-target="snacks">🥨 Andhra Snacks</button>
+      <button class="chip" data-target="pickles">🥭 Pickles</button>
+      <button class="chip" data-target="podi">🌶️ Podi</button>
+    </div>
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="Search items…" aria-label="Search products">
+    </div>
+  </div>
+</nav>
+
+<!-- ============ MAIN ============ -->
+<main class="wrap">
+  <div id="noResults" class="no-match" style="display:none;padding:60px 0;">No items match your search. Try a different name.</div>
+
+  <section class="cat-section" id="sweets">
+    <div class="cat-head">
+      <div>
+        <span class="eyebrow">Sweets · మిఠాయిలు</span>
+        <h2>Festive Sweets</h2>
+        <p>Slow-cooked in pure ghee, just like a Telugu festival kitchen.</p>
+      </div>
+      <span class="count-tag" id="count-sweets"></span>
+    </div>
+    <div class="grid" id="grid-sweets"></div>
+  </section>
+
+  <section class="cat-section" id="snacks">
+    <div class="cat-head">
+      <div>
+        <span class="eyebrow">Andhra Snacks · స్నాక్స్</span>
+        <h2>Crunchy Tea-Time Snacks</h2>
+        <p>The crisp, spiced bites every Andhra household keeps in steel tins.</p>
+      </div>
+      <span class="count-tag" id="count-snacks"></span>
+    </div>
+    <div class="grid" id="grid-snacks"></div>
+  </section>
+
+  <section class="cat-section" id="pickles">
+    <div class="cat-head">
+      <div>
+        <span class="eyebrow">Pickles · ఊరగాయలు</span>
+        <h2>Sun-Cured Pickles</h2>
+        <p>Mango, gongura, lemon and more — made the slow, traditional way, in small batches.</p>
+      </div>
+      <span class="count-tag" id="count-pickles"></span>
+    </div>
+    <div class="grid" id="grid-pickles"></div>
+  </section>
+
+  <section class="cat-section" id="podi">
+    <div class="cat-head">
+      <div>
+        <span class="eyebrow">Spice Podi · పొడులు</span>
+        <h2>Dry Spice Podi</h2>
+        <p>Stone-ground powders that turn plain rice or dosa into a meal.</p>
+      </div>
+      <span class="count-tag" id="count-podi"></span>
+    </div>
+    <div class="grid" id="grid-podi"></div>
+  </section>
+</main>
+
+<!-- ============ STORY / TRUST BAND ============ -->
+<div class="story-band">
+  <div class="story-inner">
+    <p class="story-text"><strong>Why Vaarahi?</strong> Every order is cooked fresh after you place it — no factory lines, no stockpiles. We pack the way our own family would send food to a son or daughter living away from home.</p>
+    <div class="story-badges">
+      <div class="story-badge"><span class="ic">👵</span>Family recipes</div>
+      <div class="story-badge"><span class="ic">🔥</span>Cooked to order</div>
+      <div class="story-badge"><span class="ic">📦</span>Sealed &amp; fresh-packed</div>
+      <div class="story-badge"><span class="ic">🇮🇳</span>Pan-India delivery</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer id="footer-contact">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <img src="https://vaarahi-homefoods.github.io/vaarahi-homefoods/images/logo.png" alt="">
+        <span>Vaarahi HomeFoods</span>
+      </div>
+      <p>Traditional Andhra sweets, snacks, pickles and podi — made in small home-kitchen batches and shipped fresh across India.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#sweets">Sweets</a></li>
+        <li><a href="#snacks">Andhra Snacks</a></li>
+        <li><a href="#pickles">Pickles</a></li>
+        <li><a href="#podi">Spice Podi</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get in Touch</h4>
+      <ul>
+        <li><a href="https://wa.me/919494359748" target="_blank" rel="noopener">💬 WhatsApp: +91 94943 59748</a></li>
+        <li><a href="#" id="footerWaBtn">Place an order</a></li>
+        <li>🚚 Free shipping, pan-India</li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyline">© 2026 Vaarahi HomeFoods. Made with ♥ for everyone missing home food.</div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<button class="float-wa" id="floatWaBtn" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">💬</button>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast"></div>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <div class="drawer-head">
+    <h3>Your Cart</h3>
+    <button class="drawer-close" id="drawerClose" aria-label="Close cart">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot" id="drawerFoot" style="display:none;">
+    <div class="total-row"><span>Total</span><span id="cartTotal">₹0</span></div>
+    <a class="btn btn-whatsapp" id="checkoutBtn" href="#" target="_blank" rel="noopener">✅ Checkout on WhatsApp</a>
+    <button class="clear-link" id="clearCartBtn">Clear cart</button>
+  </div>
+</aside>
+
+<script>
+(function(){
+  const WA_NUMBER = "919494359748";
+  const IMG = "https://vaarahi-homefoods.github.io/vaarahi-homefoods/images/";
+
+  // ---------- PRODUCT DATA ----------
+  const PRODUCTS = [
+    // SWEETS
+    {id:'sw1',cat:'sweets',name:'Dry Fruit Ladoo',desc:'Roasted nuts & dates rolled in pure ghee.',img:IMG+'sweets/dry-fruit-ladoo.jpg',tag:'Bestseller',variants:[{l:'200g',p:300},{l:'500g',p:700},{l:'1kg',p:1350}]},
+    {id:'sw2',cat:'sweets',name:'Karjikayalu (Jaggery)',desc:'Crisp coconut & jaggery filled pastries.',img:IMG+'sweets/karjikayalu.jpg',variants:[{l:'200g',p:280}]},
+    {id:'sw3',cat:'sweets',name:'Arisalu',desc:'Classic festive rice-jaggery discs.',img:IMG+'sweets/arisalu.jpg',variants:[{l:'10 pcs',p:220}]},
+    {id:'sw4',cat:'sweets',name:'Boondi Ladoo',desc:'Fine gram-flour pearls bound in syrup.',img:IMG+'sweets/boondi-ladoo.jpg',variants:[{l:'200g',p:200}]},
+    {id:'sw5',cat:'sweets',name:'Nuvvula Undalu',desc:'Toasted sesame & jaggery energy balls.',img:IMG+'sweets/nuvvula-undalu.jpg',variants:[{l:'200g',p:300}]},
+    {id:'sw6',cat:'sweets',name:'Sunnundalu',desc:'Urad dal & ghee laddus, a Telugu home staple.',img:IMG+'sweets/sunnundalu.jpg',variants:[{l:'200g',p:300}]},
+    {id:'sw7',cat:'sweets',name:'Ravva Ladoo',desc:'Semolina laddus, slow-roasted in ghee.',img:IMG+'sweets/ravva-ladoo.jpg',variants:[{l:'200g',p:180}]},
+
+    // SNACKS
+    {id:'sn1',cat:'snacks',name:'Chakkilalu (Saddapindi)',desc:'Spiral rice crisps, fermented-rice style.',img:IMG+'snacks/chakkilalu-saddapindi.jpg',variants:[{l:'200g',p:200},{l:'500g',p:450},{l:'1kg',p:900}]},
+    {id:'sn2',cat:'snacks',name:'Chakkilalu (Biyyam Pindi)',desc:'Spiral rice crisps, raw rice-flour style.',img:IMG+'snacks/chakkilalu-biyyam.jpg',variants:[{l:'200g',p:180},{l:'500g',p:420},{l:'1kg',p:850}]},
+    {id:'sn3',cat:'snacks',name:'Murukulu (Ragi Pindi)',desc:'Crunchy finger-millet spirals.',img:IMG+'snacks/murukulu-ragi.jpg',variants:[{l:'200g',p:200},{l:'500g',p:450},{l:'1kg',p:900}]},
+    {id:'sn4',cat:'snacks',name:'Ribbon Pakodi',desc:'Thin layered gram-flour ribbons, lightly spiced.',img:IMG+'snacks/ribbon-pakodi.jpg',variants:[{l:'200g',p:200},{l:'500g',p:450},{l:'1kg',p:900}]},
+    {id:'sn5',cat:'snacks',name:'Boondi Mixture',desc:'Savoury boondi tossed with peanuts & spices.',img:IMG+'snacks/boondi-mixture.jpg',variants:[{l:'200g',p:200},{l:'500g',p:450},{l:'1kg',p:900}]},
+    {id:'sn6',cat:'snacks',name:'Kaara Poosa',desc:'Crisp spiced rice-flour vermicelli.',img:IMG+'snacks/kaara-poosa.jpg',variants:[{l:'200g',p:200},{l:'500g',p:450},{l:'1kg',p:900}]},
+    {id:'sn7',cat:'snacks',name:'Kaaram Palli',desc:'Roasted peanuts in a fiery red-chilli coat.',img:IMG+'snacks/kaaram-palli.jpg',tag:'Spicy',variants:[{l:'200g',p:250},{l:'500g',p:575},{l:'1kg',p:1150}]},
+    {id:'sn8',cat:'snacks',name:'Nippatlu (Saddapindi)',desc:'Savoury fried discs, fermented-rice style.',img:IMG+'snacks/nippatlu-saddapindi.jpg',variants:[{l:'200g',p:200},{l:'500g',p:450},{l:'1kg',p:900}]},
+    {id:'sn9',cat:'snacks',name:'Nippatlu (Biyyam Pindi)',desc:'Savoury fried discs, raw rice-flour style.',img:IMG+'snacks/nippatlu-biyyam.jpg',variants:[{l:'200g',p:200},{l:'500g',p:450},{l:'1kg',p:900}]},
+    {id:'sn10',cat:'snacks',name:'Nippatlu (Saggu Biyyam)',desc:'Savoury discs made with a sago-rice blend.',img:IMG+'snacks/nippatlu-saggu.jpg',variants:[{l:'200g',p:200},{l:'500g',p:450},{l:'1kg',p:900}]},
+    {id:'sn11',cat:'snacks',name:'Minapa Janthikalu',desc:'Urad-dal spirals with a delicate crunch.',img:IMG+'snacks/minapa-janthikalu.jpg',variants:[{l:'200g',p:200},{l:'500g',p:450},{l:'1kg',p:900}]},
+    {id:'sn12',cat:'snacks',name:'Korrala Janthikalu',desc:'Foxtail-millet spirals, lightly spiced.',img:IMG+'snacks/korrala-janthikalu.jpg',variants:[{l:'200g',p:200},{l:'500g',p:450},{l:'1kg',p:900}]},
+    {id:'sn13',cat:'snacks',name:'Kaaram Anapakaya',desc:'Bottle-gourd fritters in a spicy gram coat.',img:IMG+'snacks/kaaram-anapakaya.jpg',tag:'Spicy',variants:[{l:'200g',p:300},{l:'500g',p:700},{l:'1kg',p:1350}]},
+
+    // PICKLES (illustrated — no source photo yet)
+    {id:'pk1',cat:'pickles',name:'Avakaya',desc:'The iconic raw-mango pickle in mustard & chilli.',svg:{shape:'jar',color:'#C9821F'},tag:'Bestseller',variants:[{l:'250g',p:250},{l:'500g',p:480},{l:'1kg',p:900}]},
+    {id:'pk2',cat:'pickles',name:'Gongura Pickle',desc:'Tangy sorrel-leaf pickle, a regional favourite.',svg:{shape:'jar',color:'#4B6B3A'},variants:[{l:'250g',p:220},{l:'500g',p:420},{l:'1kg',p:800}]},
+    {id:'pk3',cat:'pickles',name:'Tomato Pickle',desc:'Slow-cooked tomatoes with tempered spices.',svg:{shape:'jar',color:'#8A1538'},variants:[{l:'250g',p:180},{l:'500g',p:350},{l:'1kg',p:650}]},
+    {id:'pk4',cat:'pickles',name:'Nimmakaya Pickle',desc:'Sun-cured lemon pickle, sharp and zesty.',svg:{shape:'jar',color:'#E8A33D'},variants:[{l:'250g',p:150},{l:'500g',p:280},{l:'1kg',p:500}]},
+    {id:'pk5',cat:'pickles',name:'Velluli Pickle',desc:'Whole-garlic pickle in roasted spice oil.',svg:{shape:'jar',color:'#9C7A4A'},variants:[{l:'250g',p:200},{l:'500g',p:380},{l:'1kg',p:700}]},
+    {id:'pk6',cat:'pickles',name:'Usirikaya Pickle',desc:'Gooseberry pickle, equal parts tart and spiced.',svg:{shape:'jar',color:'#6B8E4E'},variants:[{l:'250g',p:200},{l:'500g',p:380},{l:'1kg',p:700}]},
+    {id:'pk7',cat:'pickles',name:'Mukkala Pacchadi',desc:'Mixed-vegetable pickle, a little of everything.',svg:{shape:'jar',color:'#B5651D'},variants:[{l:'250g',p:180},{l:'500g',p:340},{l:'1kg',p:620}]},
+    {id:'pk8',cat:'pickles',name:'Karivepaku Pickle',desc:'Curry-leaf pickle, fragrant and intensely savoury.',svg:{shape:'jar',color:'#3F5D2A'},variants:[{l:'200g',p:160},{l:'500g',p:300}]},
+
+    // PODI (illustrated — no source photo yet)
+    {id:'pd1',cat:'podi',name:'Kandi Podi',desc:'Toor-dal spice powder, the everyday rice mix.',svg:{shape:'bowl',color:'#C9821F'},variants:[{l:'200g',p:160},{l:'500g',p:380},{l:'1kg',p:720}]},
+    {id:'pd2',cat:'podi',name:'Karam Podi',desc:'Fiery chilli-garlic powder for instant flavour.',svg:{shape:'bowl',color:'#8A1538'},tag:'Bestseller',variants:[{l:'200g',p:180},{l:'500g',p:420},{l:'1kg',p:800}]},
+    {id:'pd3',cat:'podi',name:'Nuvvula Podi',desc:'Roasted sesame powder, nutty and rich.',svg:{shape:'bowl',color:'#6B4A2A'},variants:[{l:'200g',p:170},{l:'500g',p:400},{l:'1kg',p:760}]},
+    {id:'pd4',cat:'podi',name:'Putnala Podi',desc:'Roasted-gram powder, mild and comforting.',svg:{shape:'bowl',color:'#E8A33D'},variants:[{l:'200g',p:150},{l:'500g',p:350},{l:'1kg',p:650}]},
+    {id:'pd5',cat:'podi',name:'Karivepaku Podi',desc:'Curry-leaf powder, deeply aromatic.',svg:{shape:'bowl',color:'#4B6B3A'},variants:[{l:'200g',p:170},{l:'500g',p:400},{l:'1kg',p:760}]},
+    {id:'pd6',cat:'podi',name:'Pappula Podi',desc:'A blend of roasted lentils, mild and earthy.',svg:{shape:'bowl',color:'#A8762E'},variants:[{l:'200g',p:160},{l:'500g',p:380},{l:'1kg',p:720}]},
+    {id:'pd7',cat:'podi',name:'Kobbari Podi',desc:'Coconut-chilli powder, perfect with idli & dosa.',svg:{shape:'bowl',color:'#D8C18A'},variants:[{l:'200g',p:180},{l:'500g',p:420},{l:'1kg',p:800}]},
+    {id:'pd8',cat:'podi',name:'Allam Podi',desc:'Ginger-garlic powder with a warm, sharp kick.',svg:{shape:'bowl',color:'#C9711F'},variants:[{l:'200g',p:190},{l:'500g',p:440},{l:'1kg',p:840}]},
+  ];
+
+  // ---------- ILLUSTRATION SVGS ----------
+  function svgJar(color){
+    return '<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">'+
+      '<rect x="34" y="18" width="92" height="16" rx="6" fill="#5b4636"/>'+
+      '<rect x="26" y="36" width="108" height="106" rx="18" fill="#FFFDF8" stroke="#2B1B12" stroke-width="3"/>'+
+      '<path d="M30 80 Q80 66 130 80 L130 126 Q80 140 30 126 Z" fill="'+color+'"/>'+
+      '<circle cx="58" cy="94" r="4" fill="#2B1B12" opacity="0.22"/>'+
+      '<circle cx="92" cy="106" r="3" fill="#2B1B12" opacity="0.22"/>'+
+      '<circle cx="74" cy="116" r="3.5" fill="#2B1B12" opacity="0.18"/>'+
+      '</svg>';
+  }
+  function svgBowl(color){
+    return '<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">'+
+      '<path d="M24 96 Q80 124 136 96 L130 116 Q80 140 30 116 Z" fill="#EDE0C4" stroke="#2B1B12" stroke-width="3"/>'+
+      '<ellipse cx="80" cy="96" rx="58" ry="24" fill="#FFFDF8" stroke="#2B1B12" stroke-width="3"/>'+
+      '<ellipse cx="80" cy="88" rx="44" ry="20" fill="'+color+'"/>'+
+      '<circle cx="62" cy="84" r="3.4" fill="#2B1B12" opacity="0.22"/>'+
+      '<circle cx="96" cy="88" r="3" fill="#2B1B12" opacity="0.22"/>'+
+      '<circle cx="80" cy="78" r="3" fill="#2B1B12" opacity="0.18"/>'+
+      '</svg>';
+  }
+  function visualHTML(p){
+    if(p.img) return '<img src="'+p.img+'" alt="'+p.name+'" loading="lazy">';
+    const svg = p.svg.shape === 'jar' ? svgJar(p.svg.color) : svgBowl(p.svg.color);
+    return svg;
+  }
+  function thumbHTML(p){
+    if(p.img) return '<img src="'+p.img+'" alt="">';
+    return p.svg.shape === 'jar' ? svgJar(p.svg.color) : svgBowl(p.svg.color);
+  }
+
+  // ---------- RENDER PRODUCT CARDS ----------
+  function cardHTML(p){
+    const tag = p.tag ? '<span class="tag-pill">'+ (p.tag==='Spicy' ? '🌶️ Spicy' : '⭐ '+p.tag) +'</span>' : '';
+    const imgWrapClass = p.img ? 'card-img' : 'card-img illus';
+    const pills = p.variants.map((v,i)=>'<button class="pill'+(i===0?' active':'')+'" data-idx="'+i+'">'+v.l+'</button>').join('');
+    return ''+
+    '<div class="card" data-id="'+p.id+'" data-variant="0">'+
+      '<div class="'+imgWrapClass+'">'+
+        tag+
+        visualHTML(p)+
+      '</div>'+
+      '<div class="card-body">'+
+        '<h3>'+p.name+'</h3>'+
+        '<p class="desc">'+p.desc+'</p>'+
+        '<div class="variant-row">'+pills+'</div>'+
+        '<div class="price-row">'+
+          '<span class="price">₹'+p.variants[0].p+'</span>'+
+          '<div class="qty-stepper">'+
+            '<button class="qminus" aria-label="Decrease quantity">−</button>'+
+            '<span class="qval">1</span>'+
+            '<button class="qplus" aria-label="Increase quantity">+</button>'+
+          '</div>'+
+        '</div>'+
+        '<button class="add-btn">🛒 Add to Cart</button>'+
+      '</div>'+
+    '</div>';
+  }
+
+  let searchTerm = '';
+  function renderProducts(){
+    const cats = ['sweets','snacks','pickles','podi'];
+    let totalVisible = 0;
+    cats.forEach(cat=>{
+      const items = PRODUCTS.filter(p=>p.cat===cat && p.name.toLowerCase().includes(searchTerm));
+      totalVisible += items.length;
+      document.getElementById('grid-'+cat).innerHTML = items.length
+        ? items.map(cardHTML).join('')
+        : '<div class="no-match">No items match your search.</div>';
+      const allInCat = PRODUCTS.filter(p=>p.cat===cat).length;
+      document.getElementById('count-'+cat).textContent = items.length+' / '+allInCat+' items';
+      document.getElementById(cat).style.display = (searchTerm && items.length===0) ? 'none' : '';
+    });
+    document.getElementById('noResults').style.display = (searchTerm && totalVisible===0) ? 'block' : 'none';
+  }
+
+  // ---------- CART STATE ----------
+  let cart = {}; // key -> {id,name,label,price,qty,img,svg}
+
+  function findProduct(id){ return PRODUCTS.find(p=>p.id===id); }
+
+  function addToCart(id, variantIdx, qty){
+    const p = findProduct(id);
+    const v = p.variants[variantIdx];
+    const key = id+'|'+v.l;
+    if(cart[key]){
+      cart[key].qty += qty;
+    } else {
+      cart[key] = {id:p.id, name:p.name, label:v.l, price:v.p, qty:qty, img:p.img, svg:p.svg};
+    }
+    renderCart();
+    showToast('Added '+p.name+' ('+v.l+') to cart');
+  }
+
+  function changeCartQty(key, delta){
+    if(!cart[key]) return;
+    cart[key].qty += delta;
+    if(cart[key].qty <= 0) delete cart[key];
+    renderCart();
+  }
+  function removeFromCart(key){ delete cart[key]; renderCart(); }
+  function clearCart(){ cart = {}; renderCart(); }
+
+  function cartTotal(){
+    return Object.values(cart).reduce((s,it)=>s+it.price*it.qty,0);
+  }
+  function cartCount(){
+    return Object.values(cart).reduce((s,it)=>s+it.qty,0);
+  }
+
+  function renderCart(){
+    const body = document.getElementById('drawerBody');
+    const foot = document.getElementById('drawerFoot');
+    const entries = Object.entries(cart);
+    document.getElementById('cartCount').textContent = cartCount();
+
+    if(entries.length === 0){
+      body.innerHTML = '<div class="empty-cart"><div class="ic">🛒</div><p>Your cart is empty.<br>Add something delicious!</p></div>';
+      foot.style.display = 'none';
+      return;
+    }
+    foot.style.display = 'block';
+    body.innerHTML = entries.map(([key,it])=>{
+      const thumb = it.img ? '<img src="'+it.img+'" alt="">' : (it.svg.shape==='jar'?svgJar(it.svg.color):svgBowl(it.svg.color));
+      return ''+
+      '<div class="cart-row" data-key="'+key+'">'+
+        '<div class="cart-thumb">'+thumb+'</div>'+
+        '<div class="cart-info">'+
+          '<div class="nm">'+it.name+'</div>'+
+          '<div class="vr">'+it.label+' · ₹'+it.price+' each</div>'+
+          '<div class="cart-line-foot">'+
+            '<div class="cart-qty">'+
+              '<button class="cminus" aria-label="Decrease">−</button>'+
+              '<span>'+it.qty+'</span>'+
+              '<button class="cplus" aria-label="Increase">+</button>'+
+            '</div>'+
+            '<span class="cart-line-price">₹'+(it.price*it.qty)+'</span>'+
+          '</div>'+
+          '<button class="cart-remove">Remove</button>'+
+        '</div>'+
+      '</div>';
+    }).join('');
+    document.getElementById('cartTotal').textContent = '₹'+cartTotal();
+
+    const total = cartTotal();
+    let msg = "Hi Vaarahi HomeFoods! I'd like to order:\n";
+    entries.forEach(([key,it])=>{
+      msg += "- "+it.name+" ("+it.label+") x"+it.qty+" — ₹"+(it.price*it.qty)+"\n";
+    });
+    msg += "\nTotal: ₹"+total+"\n\nPlease confirm availability and delivery details.";
+    document.getElementById('checkoutBtn').href = "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(msg);
+  }
+
+  // ---------- TOAST ----------
+  let toastTimer;
+  function showToast(text){
+    const t = document.getElementById('toast');
+    t.textContent = text;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(()=>t.classList.remove('show'), 2200);
+  }
+
+  // ---------- DRAWER OPEN/CLOSE ----------
+  function openCart(){ document.getElementById('drawer').classList.add('open'); document.getElementById('overlay').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeCart(){ document.getElementById('drawer').classList.remove('open'); document.getElementById('overlay').classList.remove('open'); document.body.style.overflow=''; }
+
+  document.getElementById('cartBtn').addEventListener('click', openCart);
+  document.getElementById('drawerClose').addEventListener('click', closeCart);
+  document.getElementById('overlay').addEventListener('click', closeCart);
+  document.getElementById('clearCartBtn').addEventListener('click', clearCart);
+
+  // ---------- PRODUCT GRID EVENT DELEGATION ----------
+  document.querySelector('main').addEventListener('click', function(e){
+    const card = e.target.closest('.card');
+    if(!card) return;
+    const id = card.dataset.id;
+    const product = findProduct(id);
+
+    if(e.target.classList.contains('pill')){
+      card.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+      e.target.classList.add('active');
+      const idx = +e.target.dataset.idx;
+      card.dataset.variant = idx;
+      card.querySelector('.price').textContent = '₹'+product.variants[idx].p;
+    }
+    if(e.target.classList.contains('qplus') || e.target.classList.contains('qminus')){
+      const qspan = card.querySelector('.qval');
+      let val = +qspan.textContent;
+      val = e.target.classList.contains('qplus') ? Math.min(99,val+1) : Math.max(1,val-1);
+      qspan.textContent = val;
+    }
+    if(e.target.classList.contains('add-btn')){
+      const idx = +card.dataset.variant || 0;
+      const qty = +card.querySelector('.qval').textContent;
+      addToCart(id, idx, qty);
+      e.target.classList.add('added');
+      const original = e.target.textContent;
+      e.target.textContent = '✓ Added';
+      setTimeout(()=>{ e.target.classList.remove('added'); e.target.textContent = original; }, 1100);
+    }
+  });
+
+  // ---------- CART DRAWER EVENT DELEGATION ----------
+  document.getElementById('drawerBody').addEventListener('click', function(e){
+    const row = e.target.closest('.cart-row');
+    if(!row) return;
+    const key = row.dataset.key;
+    if(e.target.classList.contains('cplus')) changeCartQty(key, 1);
+    if(e.target.classList.contains('cminus')) changeCartQty(key, -1);
+    if(e.target.classList.contains('cart-remove')) removeFromCart(key);
+  });
+
+  // ---------- CATEGORY CHIPS + SCROLLSPY ----------
+  document.getElementById('chipRow').addEventListener('click', function(e){
+    const chip = e.target.closest('.chip');
+    if(!chip) return;
+    document.getElementById(chip.dataset.target).scrollIntoView({behavior:'smooth'});
+  });
+  const sections = ['sweets','snacks','pickles','podi'].map(id=>document.getElementById(id));
+  const chips = Array.from(document.querySelectorAll('.chip'));
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        chips.forEach(c=>c.classList.toggle('active', c.dataset.target===entry.target.id));
+      }
+    });
+  }, {rootMargin:'-150px 0px -60% 0px', threshold:0.1});
+  sections.forEach(s=>observer.observe(s));
+
+  // ---------- SEARCH ----------
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', function(){
+    searchTerm = this.value.trim().toLowerCase();
+    renderProducts();
+  });
+  document.getElementById('searchToggle').addEventListener('click', function(){
+    document.querySelector('.cat-tabs').scrollIntoView({behavior:'smooth', block:'start'});
+    searchInput.focus();
+  });
+
+  // ---------- WHATSAPP BUTTONS ----------
+  const generalMsg = encodeURIComponent("Hi Vaarahi HomeFoods! I'd like to know more about your products.");
+  const generalUrl = "https://wa.me/"+WA_NUMBER+"?text="+generalMsg;
+  document.getElementById('heroWaBtn').href = generalUrl;
+  document.getElementById('floatWaBtn').addEventListener('click', ()=>window.open(generalUrl,'_blank'));
+  document.getElementById('footerWaBtn').addEventListener('click', (e)=>{ e.preventDefault(); window.open(generalUrl,'_blank'); });
+
+  // ---------- INIT ----------
+  renderProducts();
+  renderCart();
+})();
+</script>
+</body>
+</html>
