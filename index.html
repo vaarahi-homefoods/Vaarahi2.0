@@ -189,14 +189,14 @@
     border-radius:999px;padding:6px 12px;font-size:.78rem;font-weight:700;transition:.15s;
   }
   .pill.active{background:var(--turmeric);border-color:var(--turmeric);color:#fff;}
-  .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:6px;}
+  .price-row{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px;}
   .price{font-size:1.2rem;font-weight:800;color:var(--maroon);font-family:'Baloo Tammudu 2',sans-serif;}
   .qty-stepper{display:flex;align-items:center;border:1.5px solid rgba(43,27,18,.16);border-radius:999px;overflow:hidden;}
   .qty-stepper button{background:var(--cream-2);border:none;width:28px;height:28px;font-weight:800;font-size:1rem;color:var(--ink);}
   .qty-stepper span{width:26px;text-align:center;font-weight:700;font-size:.85rem;}
   .add-btn{
-    width:100%;background:var(--maroon);color:#fff;border:none;border-radius:999px;padding:11px;
-    font-weight:800;font-size:.9rem;display:flex;align-items:center;justify-content:center;gap:7px;transition:.2s;
+    flex:none;background:var(--maroon);color:#fff;border:none;border-radius:999px;padding:9px 16px;
+    font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap;transition:.2s;
   }
   .add-btn:hover{background:var(--maroon-dark);}
   .add-btn.added{background:var(--leaf);}
@@ -275,6 +275,22 @@
     .hero-collage{display:none;}
     .top-nav{display:none;}
     .footer-inner{grid-template-columns:1fr;}
+  }
+  @media(max-width:680px){
+    .grid{grid-template-columns:1fr;gap:12px;}
+    .card{flex-direction:row;border-radius:16px;}
+    .card-img{width:108px;min-width:108px;max-width:108px;aspect-ratio:1/1;}
+    .card-img.illus svg{width:70%;}
+    .tag-pill{font-size:.6rem;padding:3px 7px;top:6px;right:6px;}
+    .card-body{padding:10px 14px;gap:5px;}
+    .card-body h3{font-size:.92rem;}
+    .card-body .desc{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;min-height:0;font-size:.76rem;}
+    .variant-row{flex-wrap:nowrap;overflow-x:auto;gap:5px;padding-bottom:1px;scrollbar-width:none;}
+    .variant-row::-webkit-scrollbar{display:none;}
+    .pill{padding:4px 10px;font-size:.7rem;flex:none;}
+    .qty-stepper{display:none;}
+    .price{font-size:1rem;}
+    .add-btn{padding:7px 13px;font-size:.78rem;}
   }
   @media(max-width:560px){
     .wrap,.hero-inner,.topbar-inner,.cat-tabs-inner,.story-inner,.footer-inner{padding-left:18px;padding-right:18px;}
@@ -581,8 +597,8 @@
             '<span class="qval">1</span>'+
             '<button class="qplus" aria-label="Increase quantity">+</button>'+
           '</div>'+
+          '<button class="add-btn" aria-label="Add to cart">🛒<span class="add-label">Add</span></button>'+
         '</div>'+
-        '<button class="add-btn">🛒 Add to Cart</button>'+
       '</div>'+
     '</div>';
   }
@@ -720,14 +736,15 @@
       val = e.target.classList.contains('qplus') ? Math.min(99,val+1) : Math.max(1,val-1);
       qspan.textContent = val;
     }
-    if(e.target.classList.contains('add-btn')){
+    const addBtn = e.target.closest('.add-btn');
+    if(addBtn){
       const idx = +card.dataset.variant || 0;
       const qty = +card.querySelector('.qval').textContent;
       addToCart(id, idx, qty);
-      e.target.classList.add('added');
-      const original = e.target.textContent;
-      e.target.textContent = '✓ Added';
-      setTimeout(()=>{ e.target.classList.remove('added'); e.target.textContent = original; }, 1100);
+      addBtn.classList.add('added');
+      const original = addBtn.innerHTML;
+      addBtn.innerHTML = '✓ Added';
+      setTimeout(()=>{ addBtn.classList.remove('added'); addBtn.innerHTML = original; }, 1100);
     }
   });
 
